@@ -34,10 +34,8 @@ async function lecture(req, res, next) {
   const rightLecture = lectures.find(a => a.slug === slug);
 
   if(!rightLecture){
-    return next;
+    return next();
   }
-
-  //const lecture = rightLecture.content;
 
   res.render('lecture', { title: rightLecture.title, underTitle: rightLecture.category,
      lecture: rightLecture, frontPages: false } );
