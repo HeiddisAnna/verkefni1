@@ -7,10 +7,7 @@ const content = require('./content');
 
 const app = express();
 
-
 app.locals.setContent = content;
-//app.locals.foo = bar => `foo ${bar}`;
-
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
