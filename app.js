@@ -4,7 +4,6 @@ const lectures = require('./lectures');
 
 //Skilgreina hvaða js skrá á að nota
 const content = require('./content');
-
 const app = express();
 
 app.locals.setContent = content;
@@ -14,9 +13,7 @@ app.set('view engine', 'ejs');
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-
 app.use('/', lectures);
-
 
 //Villumeðhöndlun
 //404 villa 
@@ -42,6 +39,3 @@ const port = 3000;
 app.listen(port, hostname, () => {
     console.info(`Server running at http://${hostname}:${port}/`);
 });
-
-
-
