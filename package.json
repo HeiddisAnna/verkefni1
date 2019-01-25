@@ -4,8 +4,8 @@
   "description": "v10",
   "main": "index.js",
   "scripts": {
-    "eslint": "eslint *.js **/*.js",
-    "start": "node app.js"
+    "eslint": "eslint *.js \"**/*.js\"",
+    "start": "nodemon app.js"
   },
   "keywords": [],
   "author": "",
