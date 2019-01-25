@@ -2,7 +2,7 @@ const path = require('path');
 const express = require('express');
 const lectures = require('./lectures');
 
-//Skilgreina hvaða js skrá á að nota
+// Skilgreina hvaða js skrá á að nota
 const content = require('./content');
 const app = express();
 
@@ -15,19 +15,19 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', lectures);
 
-//Villumeðhöndlun
-//404 villa 
+// Villumeðhöndlun
+// 404 villa 
 function notFoundHandler(req, res, next) {
-    const title = 'Síða fannst ekki';
-    const message = 'Efnið fannst ekki';
-    res.status(404).render('error', {title, message});
+  const title = 'Síða fannst ekki';
+  const message = 'Efnið fannst ekki';
+  res.status(404).render('error', { title, message });
 }
 
-//500 villa
+// 500 villa
 function errorHandler(req, res, next) {
-    const title = 'Villa';
-    const message = 'Það kom upp villa við keyrslu';
-    res.status(500).render('error', {title, message});
+  const title = 'Villa';
+  const message = 'Það kom upp villa við keyrslu';
+  res.status(500).render('error', { title, message });
 }
 
 app.use(notFoundHandler);
@@ -37,5 +37,5 @@ const hostname = '127.0.0.1';
 const port = 3000;
 
 app.listen(port, hostname, () => {
-    console.info(`Server running at http://${hostname}:${port}/`);
+  console.info(`Server running at http://${hostname}:${port}/`);
 });

@@ -1,5 +1,4 @@
 const express = require('express');
-const createContent = require('./content');
 
 const router = express.Router();
 const fs = require('fs');
@@ -23,7 +22,9 @@ async function list(req, res) {
   const data = await readList();
   const { lectures } = data;
 
-  res.render('lectures', {title, underTitle, lectures, frontPages: true});
+
+  res.render('lectures', { title, underTitle, lectures, frontPages: true });
+
 }
 
 async function lecture(req, res, next) {
@@ -33,12 +34,12 @@ async function lecture(req, res, next) {
   const { lectures } = data;
   const rightLecture = lectures.find(a => a.slug === slug);
 
-  if(!rightLecture){
+  if (!rightLecture){
     return next();
   }
 
-  res.render('lecture', { title: rightLecture.title, underTitle: rightLecture.category,
-    lecture: rightLecture, frontPages: false } );
+  res.render('lecture', { title:rightLecture.title, underTitle:rightLecture.category,
+    lecture:rightLecture, frontPages:false });
 }
 
 router.get('/', catchErrors(list));
